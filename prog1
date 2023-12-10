@@ -1,0 +1,19 @@
+def find_starting_index(food, people):
+    total = 0
+    starting_index = -1
+
+    for i, (f, p) in enumerate(zip(food, people)):
+        total += f - p
+        if total < 0:
+            total = 0
+            starting_index = i
+
+    return -1 if total < 0 else starting_index + 1
+
+
+food_input = list(map(int, input().split()))
+people_input = list(map(int, input().split()))
+
+
+output = find_starting_index(food_input, people_input)
+print("Output:", output)
